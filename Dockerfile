@@ -1,4 +1,4 @@
-FROM fortytwoio/base-image:v2
+FROM fortytwoio/base-image:latest
 MAINTAINER Thomas Fritz <thomas.fritz@forty-two.io>
 
 RUN apt-get update -qq && \
