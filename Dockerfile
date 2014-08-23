@@ -3,7 +3,6 @@ MAINTAINER Thomas Fritz <thomas.fritz@forty-two.io>
 
 RUN apt-get update -qq && \
 	apt-get install -qqy --no-install-recommends \
-	gettext-base \
 	mysql-server
 
 ADD ./run.sh /root/run.sh
