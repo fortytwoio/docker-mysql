@@ -1,4 +1,11 @@
 
+1.0.1 / 2014-08-23
+==================
+
+ * Use mysql apt repo.
+ * Changed CMD to Entrypoint to be able to pass commandline arguments.
+ * Updated README
+
 1.0.0 / 2014-08-23
 ==================
 
