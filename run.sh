@@ -32,7 +32,7 @@ chmod -R ug+rwX,o-rwx /var/lib/mysql
 envsubst < /root/my.cnf > /etc/mysql/my.cnf
 
 # Initialize MySQL data directory
-mysql_install_db --user mysql > /dev/null
+mysql_install_db --user mysql $@ > /dev/null
 
 
 
@@ -45,12 +45,11 @@ function mysql_init_commands(){
         && echo "CREATE DATABASE IF NOT EXISTS \`$MYSQL_DATABASE\` CHARACTER SET utf8 COLLATE utf8_general_ci;"
     [[ ! -z $MYSQL_USER ]] \
         && echo "GRANT ALL ON \`$MYSQL_DATABASE\`.* to '$MYSQL_USER'@'%' IDENTIFIED BY '$MYSQL_PASSWORD';"
-		&& echo "FLUSH PRIVILEGES;"
 }
 
-mysql_init_commands | /usr/sbin/mysqld --bootstrap --verbose=0 $@
+mysql_init_commands | /usr/sbin/mysqld --user=mysql --bootstrap --verbose=0 $@
 
 
 
 # Launch
-exec /usr/sbin/mysqld $@
+exec /usr/sbin/mysqld --user=mysql $@
