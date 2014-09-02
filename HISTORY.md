@@ -1,4 +1,9 @@
 
+1.0.3 / 2014-09-02
+==================
+
+ * Updated my.cnf. Moved my.cnf to etc/mysql. Added fig.yml
+
 1.0.2 / 2014-08-26
 ==================
 
