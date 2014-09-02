@@ -1,0 +1,23 @@
+serf:
+  image: fortytwoio/base:latest
+  environment:
+    SERF_ROLE: agent
+  expose:
+    - "7373"
+    - "7946"
+
+db: 
+  build: .
+  environment:
+    SERF_ROLE: mysql
+    MYSQL_ROOT_PASSWORD: "changeme"
+    MYSQL_DATABASE: "test"
+    MYSQL_USER: "user"
+    MYSQL_PASSWORD: "pass"
+    MYSQL_SET_KEYBUF: "128M"
+    MYSQL_SET_QCACHE: "32M"
+  expose:
+    - "3306"
+  links:
+    - serf
+
